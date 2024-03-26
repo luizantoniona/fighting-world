@@ -1,10 +1,6 @@
-#include <iostream>
-
-using namespace std;
+#include "window/window.h"
 
 int main(void)
 {
-    cout << "HELLO MINI FIGHTER WORD" << endl;
-
-    return 0;
+    Window window;
 }

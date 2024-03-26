@@ -10,6 +10,7 @@ add_executable(MFW main.cpp ${SOURCES})
 
 target_link_libraries(MFW PRIVATE glfw3 opengl32 )
 
+add_subdirectory(window)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
