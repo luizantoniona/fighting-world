@@ -4,9 +4,9 @@
 
 class ThreadDatabase : public Thread
 {
-private:
-    /* data */
 public:
-    ThreadDatabase(/* args */);
+    ThreadDatabase();
     ~ThreadDatabase();
+
+private:
 };
