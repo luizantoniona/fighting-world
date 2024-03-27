@@ -1,11 +1,13 @@
 # List of source files
 set(SOURCES
+    ThreadManager.cpp
     Thread.cpp
     Database/ThreadDatabase.cpp
 )
 
 # List of header files
 set(HEADERS
+    ThreadManager.h
     Thread.h
     Database/ThreadDatabase.h
 )
