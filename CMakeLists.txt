@@ -10,7 +10,11 @@ add_executable(MFW main.cpp ${SOURCES})
 
 target_link_libraries(MFW PRIVATE glfw3 opengl32 )
 
-add_subdirectory(window)
+add_subdirectory(Window)
+add_subdirectory(Thread)
+
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}") 
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
