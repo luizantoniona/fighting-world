@@ -1,10 +1,10 @@
-#include <Window/Window.h>
+#include <Components/Window/Window.h>
 #include <Thread/ThreadManager.h>
 
-using namespace Window;
+using namespace Component;
 
 int main(void)
 {
-    Window::Window window;
+    Component::Window window;
     window.run();
 }
