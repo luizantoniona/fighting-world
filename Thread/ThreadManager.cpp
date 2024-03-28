@@ -2,13 +2,11 @@
 
 #include <Thread/Database/ThreadDatabase.h>
 
-ThreadManager::ThreadManager() : _threads({})
-{
-}
+BEGIN_NAMESPACE_THREAD
 
-ThreadManager::~ThreadManager()
-{
-}
+ThreadManager::ThreadManager() : _threads({}) {}
+
+ThreadManager::~ThreadManager() {}
 
 void ThreadManager::create(const ThreadTypeEnum type)
 {
@@ -34,3 +32,5 @@ Thread *ThreadManager::threadByType(const ThreadTypeEnum type)
         break;
     }
 }
+
+END_NAMESPACE_THREAD

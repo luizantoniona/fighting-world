@@ -6,6 +6,8 @@
 #include <Thread/Thread.h>
 #include <Thread/ThreadTypeEnum.h>
 
+BEGIN_NAMESPACE_THREAD
+
 class ThreadManager
 {
 public:
@@ -19,3 +21,5 @@ private:
 
     std::map<ThreadTypeEnum, std::list<Thread *>> _threads;
 };
+
+END_NAMESPACE_THREAD

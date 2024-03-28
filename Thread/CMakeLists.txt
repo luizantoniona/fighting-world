@@ -7,6 +7,7 @@ set(SOURCES
 
 # List of header files
 set(HEADERS
+    Thread_Globals.h
     ThreadManager.h
     Thread.h
     Database/ThreadDatabase.h
