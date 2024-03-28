@@ -1,36 +1,25 @@
 #include "window.h"
 
-Window::Window() : _window(nullptr)
+BEGIN_NAMESPACE
+
+Window::Window() : _window(sf::VideoMode(800, 600), "MFW", sf::Style::Close)
 {
-    if (!glfwInit())
-        return;
+}
 
-    _window = glfwCreateWindow(640, 480, "Mini Figter World", NULL, NULL);
-
-    if (!_window)
+void Window::run()
+{
+    while (_window.isOpen())
     {
-        glfwTerminate();
-        return;
-    }
+        sf::Event event;
+        while (_window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                _window.close();
+        }
 
-    /* Make the window's context current */
-    glfwMakeContextCurrent(_window);
-
-    /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(_window))
-    {
-        /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        /* Swap front and back buffers */
-        glfwSwapBuffers(_window);
-
-        /* Poll for and process events */
-        glfwPollEvents();
+        _window.clear();
+        _window.display();
     }
 }
 
-Window::~Window()
-{
-    glfwTerminate();
-}
+END_NAMESPACE

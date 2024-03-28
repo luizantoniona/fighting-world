@@ -1,11 +1,11 @@
 # List of source files
 set( SOURCES
-    window.cpp
+    Window.cpp
 )
 
 # List of header files
 set( HEADERS
-    window.h
+    Window.h
 )
 
 # Add sources to the executable target
