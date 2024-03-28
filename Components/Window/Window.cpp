@@ -1,10 +1,10 @@
 #include "window.h"
 
-BEGIN_NAMESPACE
+BEGIN_NAMESPACE_COMPONENT
 
-Window::Window() : _window(sf::VideoMode(800, 600), "MFW", sf::Style::Close)
-{
-}
+Window::Window() : _window(sf::VideoMode(800, 600), "MFW", sf::Style::Close) {}
+
+void Window::init() {}
 
 void Window::run()
 {
@@ -22,4 +22,4 @@ void Window::run()
     }
 }
 
-END_NAMESPACE
+END_NAMESPACE_COMPONENT

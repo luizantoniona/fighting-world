@@ -1,10 +1,11 @@
 #pragma once
 
-#include <Window/Window_Globals.h>
+#include <Components/Components_Globals.h>
 
 #include <SFML/Graphics.hpp>
 
-BEGIN_NAMESPACE
+BEGIN_NAMESPACE_COMPONENT
+
 class Window
 {
 public:
@@ -17,4 +18,4 @@ private:
     sf::RenderWindow _window;
 };
 
-END_NAMESPACE
+END_NAMESPACE_COMPONENT
