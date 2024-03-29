@@ -3,12 +3,22 @@ project(MFW VERSION 0.1.0 LANGUAGES C CXX)
 
 include_directories( ${includes} ) 
 
+find_package (sqlite3)
+
 add_executable(MFW main.cpp ${SOURCES})
 
-target_link_libraries(MFW PRIVATE sfml-system sfml-graphics sfml-window )
+set(EXTERNAL_LIBRARIES
+sfml-system
+sfml-graphics
+sfml-window
+sqlite3
+)
+
+target_link_libraries(MFW PRIVATE ${EXTERNAL_LIBRARIES} )
 
 add_subdirectory(Components)
 add_subdirectory(Components/Window)
+add_subdirectory(Database)
 add_subdirectory(Thread)
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}") 
