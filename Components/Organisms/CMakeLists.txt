@@ -1,8 +1,10 @@
 set( SOURCES
+    LoginScreen/LoginScreen.cpp
     Screen.cpp
 )
 
 set( HEADERS
+    LoginScreen/LoginScreen.h
     Screen.h
 )
 
