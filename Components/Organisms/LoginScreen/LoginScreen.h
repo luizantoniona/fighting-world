@@ -4,8 +4,6 @@
 
 #include <Components/Organisms/Screen.h>
 
-using namespace Component::Screen;
-
 BEGIN_NAMESPACE_COMPONENT
 
 class LoginScreen : public Screen

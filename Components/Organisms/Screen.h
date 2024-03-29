@@ -2,7 +2,7 @@
 
 #include <Components/Components_Globals.h>
 
-BEGIN_NAMESPACE_COMPONENTS
+BEGIN_NAMESPACE_COMPONENT
 
 class Screen
 {
@@ -15,4 +15,4 @@ public:
 private:
 };
 
-END_NAMESPACE_COMPONENTS
+END_NAMESPACE_COMPONENT

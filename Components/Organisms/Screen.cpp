@@ -10,6 +10,6 @@ Screen::~Screen()
 {
 }
 
-void Screen::init() { const 0; }
+void Screen::init() { return; }
 
 END_NAMESPACE_COMPONENT
