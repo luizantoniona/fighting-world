@@ -17,7 +17,6 @@ sqlite3
 target_link_libraries(MFW PRIVATE ${EXTERNAL_LIBRARIES} )
 
 add_subdirectory(Components)
-add_subdirectory(Components/Window)
 add_subdirectory(Database)
 add_subdirectory(Thread)
 
