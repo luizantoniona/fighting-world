@@ -7,7 +7,7 @@ set( HEADERS
 
 add_subdirectory(Atoms)
 add_subdirectory(Molecules)
-add_subdirectory(Organisms)
+add_subdirectory(Screen)
 add_subdirectory(Window)
 
 target_sources( MFW PUBLIC ${SOURCES})
