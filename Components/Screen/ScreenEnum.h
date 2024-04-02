@@ -4,15 +4,11 @@
 
 BEGIN_NAMESPACE_COMPONENT
 
-class Screen
+enum class ScreenEnum : int
 {
-public:
-    Screen();
-    ~Screen();
-
-    virtual void init();
-
-private:
+    LOADING_SCREEN = 0,
+    LOGIN_SCREEN = 1,
+    MENU_SCREEN = 2,
 };
 
 END_NAMESPACE_COMPONENT
