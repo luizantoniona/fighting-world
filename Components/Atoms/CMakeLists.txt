@@ -1,9 +1,7 @@
 set( SOURCES
-    Button/Button.cpp
 )
 
 set( HEADERS
-    Button/Button.h
 )
 
 target_sources( MFW PUBLIC ${SOURCES})

@@ -9,6 +9,6 @@ int main(void)
 {
     Database::Database database;
 
-    Component::Window window(800, 600, "Fighting World");
+    Component::Window window;
     window.init();
 }

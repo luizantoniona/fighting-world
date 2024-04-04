@@ -1,14 +1,17 @@
 #include "window.h"
 
-#include <Components/Screen/LoadingScreen/LoadingScreen.h>
-#include <Components/Screen/LoginScreen/LoginScreen.h>
-#include <Components/Screen/MenuScreen/MenuScreen.h>
+namespace
+{
+    constexpr const char *DISPLAY_NAME = "Fighting World";
+    constexpr const int SCREEN_WIDTH = 800;
+    constexpr const int SCREEN_HEIGHT = 600;
+}
 
 BEGIN_NAMESPACE_COMPONENT
 
-Window::Window(const int screenWidth, const int screenHeight, const std::string &displayName)
-    : _currentWindow(Component::ScreenEnum::LOADING_SCREEN),
-      _window(sf::VideoMode(screenWidth, screenHeight), displayName, sf::Style::Close),
+Window::Window()
+    : _currentWindow(Component::ScreenEnum::ARENA),
+      _window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), DISPLAY_NAME, sf::Style::Close),
       _screens({})
 {
 }
@@ -25,9 +28,9 @@ void Window::setCurrentWindow(const Component::ScreenEnum &currentWindow)
 
 void Window::init()
 {
-    _screens.insert({Component::ScreenEnum::LOADING_SCREEN, new Component::LoadingScreen()});
-    _screens.insert({Component::ScreenEnum::LOGIN_SCREEN, new Component::LoginScreen()});
-    _screens.insert({Component::ScreenEnum::MENU_SCREEN, new Component::MenuScreen()});
+    //_screens.insert({Component::ScreenEnum::LOADING_SCREEN, new Component::LoadingScreen()});
+    //_screens.insert({Component::ScreenEnum::LOGIN_SCREEN, new Component::LoginScreen()});
+    //_screens.insert({Component::ScreenEnum::MENU_SCREEN, new Component::MenuScreen()});
 
     run();
 }
@@ -36,6 +39,8 @@ void Window::run()
 {
     while (_window.isOpen())
     {
+        _window.clear();
+
         sf::Event event;
         while (_window.pollEvent(event))
         {
@@ -48,8 +53,6 @@ void Window::run()
         }
 
         _screens.at(_currentWindow)->update(_window);
-
-        _window.clear();
 
         _screens.at(_currentWindow)->render(_window);
 
