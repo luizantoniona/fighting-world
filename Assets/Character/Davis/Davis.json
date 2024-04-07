@@ -1,0 +1,30 @@
+{
+    "files": [
+        {
+            "name": "Assets/Character/Davis/Davis_0.png",
+            "type": "Sprite",
+            "sizeW": 800,
+            "sizeH": 560,
+            "map": []
+        },
+        {
+            "name": "Assets/Character/Davis/Davis_1.png",
+            "type": "Sprite",
+            "sizeW": 800,
+            "sizeH": 560,
+            "map": []
+        },
+        {
+            "name": "Assets/Character/Davis/Davis_f.png",
+            "type": "Face",
+            "sizeW": 120,
+            "sizeH": 120
+        },
+        {
+            "name": "Assets/Character/Davis/Davis_s.png",
+            "type": "Icon",
+            "sizeW": 40,
+            "sizeH": 45
+        }
+    ]
+}
