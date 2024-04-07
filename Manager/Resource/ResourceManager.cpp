@@ -94,8 +94,7 @@ void ResourceManager::loadCharacter(const std::string& characterName, const Comp
         loadCharacterImage(object["name"].asString(), characterEnum);
     }
 
-    _characterAnmimation[Component::CharacterEnum::TEMPLATE] = loadCharacterAnimationData();
-    _characterAnmimation[Component::CharacterEnum::DAVIS] = loadCharacterAnimationData();
+    _characterAnmimation[characterEnum] = loadCharacterAnimationData();
 
     std::cout << "ResourceManager: Loaded [" << characterName << "]" << std::endl;
 }
