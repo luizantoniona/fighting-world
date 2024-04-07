@@ -19,21 +19,18 @@ Arena::~Arena()
 void Arena::init()
 {
     Component::Entity* bandit = new Component::Character(sf::Vector2f(0.f, 100.f), CharacterEnum::BANDIT);
-    Component::Entity* bat = new Component::Character(sf::Vector2f(80.f, 100.f), CharacterEnum::BAT);
-    Component::Entity* davis = new Component::Character(sf::Vector2f(160.f, 100.f), CharacterEnum::DAVIS);
-    Component::Entity* deep = new Component::Character(sf::Vector2f(240.f, 100.f), CharacterEnum::DEEP);
+    Component::Entity* bat = new Component::Character(sf::Vector2f(80.f, 100.f), CharacterEnum::BANDIT);
+    Component::Entity* davis = new Component::Character(sf::Vector2f(160.f, 100.f), CharacterEnum::BANDIT);
+    Component::Entity* deep = new Component::Character(sf::Vector2f(240.f, 100.f), CharacterEnum::BANDIT);
 
     _characters.insert(_characters.cbegin(), bandit);
     _characters.insert(_characters.cbegin(), bat);
     _characters.insert(_characters.cbegin(), davis);
     _characters.insert(_characters.cbegin(), deep);
 
-    Component::Entity* player = new Component::Character(sf::Vector2f(100.f, 100.f), CharacterEnum::DENNIS);
+    Component::Entity* player = new Component::Character(sf::Vector2f(100.f, 100.f), CharacterEnum::BANDIT);
 
     _players.insert(_players.cbegin(), player);
-
-    //_characters.insert(_characters.cbegin(), dynamic_cast<Component::Entity
-    //*>(teste));
 }
 
 void Arena::clear()

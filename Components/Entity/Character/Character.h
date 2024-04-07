@@ -2,7 +2,7 @@
 
 #include <Components/Components_Globals.h>
 
-#include <Components/Atoms/Animation/Animation.h>
+#include <Components/Animation/Animation.h>
 #include <Components/Entity/Character/CharacterEnum.h>
 #include <Components/Entity/Entity.h>
 
@@ -19,10 +19,11 @@ public:
 
 private:
     Component::Animation _animation;
-    Component::AnimationEnum _currentAnimation;
-    Component::AnimationDirectionEnum _currentDirection;
+    Component::AnimationType _currentAnimation;
+    Component::AnimationMovementType _currentAnimationMovement;
+    Component::AnimationDirectionType _currentAnimationDirection;
 
-    sf::Vector2f movement(Component::AnimationDirectionEnum direction) const;
+    sf::Vector2f movement(Component::AnimationDirectionType direction) const;
 };
 
 END_NAMESPACE_COMPONENT

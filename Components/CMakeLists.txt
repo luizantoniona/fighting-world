@@ -5,7 +5,7 @@ set( HEADERS
     Components_Globals.h
 )
 
-add_subdirectory(Atoms)
+add_subdirectory(Animation)
 add_subdirectory(Entity)
 add_subdirectory(Screen)
 add_subdirectory(Window)
