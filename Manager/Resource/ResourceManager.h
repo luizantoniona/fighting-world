@@ -4,11 +4,13 @@
 #include <string>
 #include <vector>
 
+#include <json/json.h>
+
 #include <SFML/graphics.hpp>
 
 #include <Manager/Manager_Globals.h>
 
-#include <Components/Atoms/Animation/AnimationEnum.h>
+#include <Components/Animation/AnimationComposition.h>
 #include <Components/Entity/Character/CharacterEnum.h>
 
 BEGIN_NAMESPACE_MANAGER
@@ -21,17 +23,17 @@ public:
     ResourceManager& operator=(const ResourceManager&) = delete;
 
     sf::Texture& characterTexture(const Component::CharacterEnum& character, const int index);
-    std::map<Component::AnimationEnum, std::vector<sf::IntRect>>& characterAnimation(const Component::CharacterEnum& character);
+    Component::AnimationComposition& characterAnimation(const Component::CharacterEnum& character);
 
 private:
     ResourceManager();
     void loadCharacterImage(const std::string& fileName, const Component::CharacterEnum& character);
-    std::map<Component::AnimationEnum, std::vector<sf::IntRect>> loadCharacterAnimationData() const;
+    Component::AnimationComposition loadCharacterAnimationData(const Json::Value& characterJson) const;
 
     void loadCharacter(const std::string& characterName, const Component::CharacterEnum& characterEnum);
 
     std::map<Component::CharacterEnum, std::vector<sf::Texture>> _characterTextures;
-    std::map<Component::CharacterEnum, std::map<Component::AnimationEnum, std::vector<sf::IntRect>>> _characterAnmimation;
+    std::map<Component::CharacterEnum, Component::AnimationComposition> _characterAnmimation;
 };
 
 END_NAMESPACE_MANAGER

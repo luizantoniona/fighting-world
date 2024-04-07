@@ -3,9 +3,13 @@
 #include <fstream>
 #include <iostream>
 
-#include <json/json.h>
-
 #include <Components/Entity/Character/CharacterHelper.h>
+
+namespace {
+constexpr const char* TYPE_SPRITE = "Sprite";
+constexpr const char* TYPE_FACE = "Face";
+constexpr const char* TYPE_ICON = "Icon";
+}
 
 BEGIN_NAMESPACE_MANAGER
 
@@ -20,7 +24,7 @@ sf::Texture& ResourceManager::characterTexture(const Component::CharacterEnum& c
     return _characterTextures.at(character).at(index);
 }
 
-std::map<Component::AnimationEnum, std::vector<sf::IntRect>>& ResourceManager::characterAnimation(const Component::CharacterEnum& character)
+Component::AnimationComposition& ResourceManager::characterAnimation(const Component::CharacterEnum& character)
 {
     return _characterAnmimation.at(character);
 }
@@ -29,7 +33,7 @@ ResourceManager::ResourceManager()
     : _characterTextures({})
     , _characterAnmimation({})
 {
-    for (int i = 0; i <= static_cast<int>(Component::CharacterEnum::DENNIS); i++) {
+    for (int i = 0; i <= static_cast<int>(Component::CharacterEnum::BANDIT); i++) {
         loadCharacter(Component::CharacterHelper().characterNameByEnum(static_cast<Component::CharacterEnum>(i)), static_cast<Component::CharacterEnum>(i));
     }
 }
@@ -46,35 +50,55 @@ void ResourceManager::loadCharacterImage(const std::string& fileName, const Comp
     textureList.push_back(image);
 }
 
-std::map<Component::AnimationEnum, std::vector<sf::IntRect>> ResourceManager::loadCharacterAnimationData() const
+Component::AnimationComposition ResourceManager::loadCharacterAnimationData(const Json::Value& characterJson) const
 {
 
-    const auto size = sf::Vector2i(79, 79);
-    const auto initSpace = sf::Vector2i(0, 0);
+    auto character = Component::AnimationComposition {};
 
-    auto currentStart = initSpace;
+    for (Json::Value characterFile : characterJson["files"]) {
 
-    auto nextStart = [&]() {
-        currentStart.x += size.x + 1;
-        if (currentStart.x > size.x * 10) {
-            currentStart.x = 0;
-            currentStart.y += size.y;
+        if (characterFile["type"].asString() == TYPE_SPRITE) {
+
+            const auto size = sf::Vector2i(80, 80);
+            const auto initSpace = sf::Vector2i(0, 0);
+
+            auto currentStart = initSpace;
+
+            auto nextStart = [&]() {
+                currentStart.x += size.x + 1;
+                if (currentStart.x > size.x * 10) {
+                    currentStart.x = 0;
+                    currentStart.y += size.y;
+                }
+
+                return currentStart;
+            };
+
+            for (Json::Value characterRowInfo : characterFile["map"]) {
+
+                if (!characterRowInfo.empty()) {
+
+                    for (Json::Value characterColumnInfo : characterRowInfo) {
+
+                        const char animationType = characterColumnInfo["action"].asCString()[0];
+                        const char animationMovementType = characterColumnInfo["movement"].asCString()[0];
+
+                        if (animationType != '-') {
+
+                            Component::AnimationPair key = std::make_pair(
+                                static_cast<Component::AnimationMovementType>(animationMovementType),
+                                static_cast<Component::AnimationType>(animationType));
+
+                            std::vector<sf::IntRect>& animationFrames = character._animationData[key];
+                            animationFrames.emplace_back(currentStart, size);
+                        }
+
+                        nextStart();
+                    }
+                }
+            }
         }
-
-        return currentStart;
-    };
-
-    auto character = std::map<Component::AnimationEnum, std::vector<sf::IntRect>> {};
-
-    character[Component::AnimationEnum::STANDING].emplace_back(initSpace, size);
-    character[Component::AnimationEnum::STANDING].emplace_back(nextStart(), size);
-    character[Component::AnimationEnum::STANDING].emplace_back(nextStart(), size);
-    character[Component::AnimationEnum::STANDING].emplace_back(nextStart(), size);
-
-    character[Component::AnimationEnum::WALKING].emplace_back(nextStart(), size);
-    character[Component::AnimationEnum::WALKING].emplace_back(nextStart(), size);
-    character[Component::AnimationEnum::WALKING].emplace_back(nextStart(), size);
-    character[Component::AnimationEnum::WALKING].emplace_back(nextStart(), size);
+    }
 
     return character;
 }
@@ -95,7 +119,7 @@ void ResourceManager::loadCharacter(const std::string& characterName, const Comp
         loadCharacterImage(object["name"].asString(), characterEnum);
     }
 
-    _characterAnmimation[characterEnum] = loadCharacterAnimationData();
+    _characterAnmimation[characterEnum] = loadCharacterAnimationData(characterJson);
 
     std::cout << "ResourceManager: Loaded [" << characterName << "]" << std::endl;
 }
