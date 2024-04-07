@@ -77,19 +77,6 @@ void Window::adjustView()
 {
     auto centerLocation = _screens.at(_currentWindow)->playerPosition();
 
-    // centerLocation.y = SCREEN_HEIGHT / 2.f;
-
-    // // if too close to left border
-    // if (centerLocation.x < SCREEN_WIDTH / 2.f)
-    //     _view.reset(sf::FloatRect(0, 0, float(SCREEN_WIDTH), float(SCREEN_HEIGHT)));
-
-    // // if too close to rightBorder
-    // else if (1200 - centerLocation.x < SCREEN_WIDTH / 2.f)
-    //     _view.reset(sf::FloatRect(1200 - SCREEN_WIDTH, 0, float(SCREEN_WIDTH), float(SCREEN_HEIGHT)));
-
-    // else
-    // _view.reset(sf::FloatRect(0, 0, float(SCREEN_WIDTH), float(SCREEN_HEIGHT)));
-
     _view.setCenter(centerLocation);
 
     _window.setView(_view);

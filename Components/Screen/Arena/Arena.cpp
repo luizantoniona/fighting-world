@@ -18,11 +18,11 @@ Arena::~Arena()
 
 void Arena::init()
 {
-    // Component::Entity* teste = new Component::Character(sf::Vector2f(100.f, 100.f), CharacterEnum::TEMPLATE);
+    Component::Entity* teste = new Component::Character(sf::Vector2f(110.f, 110.f), CharacterEnum::TEMPLATE);
 
-    Component::Entity* player = new Component::Character(sf::Vector2f(0.f, 0.f), CharacterEnum::TEMPLATE);
+    Component::Entity* player = new Component::Character(sf::Vector2f(100.f, 100.f), CharacterEnum::DAVIS);
 
-    // _characters.insert(_characters.cbegin(), teste);
+    _characters.insert(_characters.cbegin(), teste);
 
     _players.insert(_players.cbegin(), player);
 

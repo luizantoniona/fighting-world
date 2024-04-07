@@ -4,6 +4,11 @@
 
 #include <Manager/Resource/ResourceManager.h>
 
+namespace {
+constexpr const auto SPEED = 100.f;
+constexpr const auto RUN_SPEED = 180.f;
+}
+
 BEGIN_NAMESPACE_COMPONENT
 
 Character::Character(const sf::Vector2f& position, const CharacterEnum& character)
@@ -13,7 +18,7 @@ Character::Character(const sf::Vector2f& position, const CharacterEnum& characte
     , _currentDirection(Component::AnimationDirectionEnum::RIGHT)
 {
     _sprite.setTexture(Manager::ResourceManager::instance().characterTexture(character, 0));
-    //_sprite.setOrigin(_sprite.getLocalBounds().height / 2, _sprite.getLocalBounds().width / 2);
+    _sprite.setOrigin(80 / 2, 80 / 2);
 }
 
 void Character::update(const sf::Time& time)
@@ -40,7 +45,10 @@ void Character::move(const sf::Time& time)
 
     } else {
         _currentAnimation = Component::AnimationEnum::STANDING;
+        _currentDirection = Component::AnimationDirectionEnum::STAY;
     }
+
+    _sprite.move(movement(_currentDirection) * SPEED * time.asSeconds());
 }
 
 void Character::keyEventHandler(sf::Event& event)
@@ -66,6 +74,18 @@ void Character::keyEventHandler(sf::Event& event)
     default:
         break;
     }
+}
+
+sf::Vector2f Character::movement(Component::AnimationDirectionEnum direction) const
+{
+    static const std::map<AnimationDirectionEnum, sf::Vector2f> directionToVector = {
+        { AnimationDirectionEnum::RIGHT, { 1, 0 } },
+        { AnimationDirectionEnum::LEFT, { -1, 0 } },
+        { AnimationDirectionEnum::UP, { 0, -1 } },
+        { AnimationDirectionEnum::DOWN, { 0, 1 } },
+        { AnimationDirectionEnum::STAY, { 0, 0 } }
+    };
+    return directionToVector.at(direction);
 }
 
 END_NAMESPACE_COMPONENT

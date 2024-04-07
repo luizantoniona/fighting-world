@@ -21,6 +21,8 @@ private:
     Component::Animation _animation;
     Component::AnimationEnum _currentAnimation;
     Component::AnimationDirectionEnum _currentDirection;
+
+    sf::Vector2f movement(Component::AnimationDirectionEnum direction) const;
 };
 
 END_NAMESPACE_COMPONENT
