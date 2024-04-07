@@ -4,9 +4,12 @@
 
 BEGIN_NAMESPACE_COMPONENT
 
-enum class ScreenEnum : int {
-    ARENA = 0,
-    NONE = 1,
+enum class AnimationDirectionEnum {
+    RIGHT,
+    LEFT,
+    UP,
+    DOWN,
+    STAY,
 };
 
 END_NAMESPACE_COMPONENT

@@ -1,15 +1,14 @@
 #pragma once
 
-#include <Database/Database_Globals.h>
-
 #include <string>
 
 #include <sqlite3.h>
 
+#include <Database/Database_Globals.h>
+
 BEGIN_NAMESPACE_DATABASE
 
-class Database
-{
+class Database {
 public:
     Database();
     ~Database();
@@ -17,8 +16,10 @@ public:
     void init();
     void close();
 
+    void execute(std::string& query) const;
+
 private:
-    sqlite3 *_database;
+    sqlite3* _database;
 };
 
 END_NAMESPACE_DATABASE

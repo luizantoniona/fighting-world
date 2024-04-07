@@ -1,8 +1,10 @@
 set( SOURCES
+    Arena/Arena.cpp
     Screen.cpp
 )
 
 set( HEADERS
+    Arena/Arena.h
     Screen.h
     ScreenEnum.h
 )

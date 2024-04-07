@@ -17,7 +17,6 @@ target_link_libraries(MFW PRIVATE ${EXTERNAL_LIBRARIES} )
 add_subdirectory(Components)
 add_subdirectory(Database)
 add_subdirectory(Manager)
-add_subdirectory(Thread)
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}") 
 

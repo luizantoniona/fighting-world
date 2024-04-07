@@ -6,7 +6,7 @@ set( HEADERS
 )
 
 add_subdirectory(Atoms)
-add_subdirectory(Molecules)
+add_subdirectory(Entity)
 add_subdirectory(Screen)
 add_subdirectory(Window)
 

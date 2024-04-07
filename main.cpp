@@ -1,13 +1,15 @@
 #include <Components/Window/Window.h>
 #include <Database/Database.h>
-#include <Thread/ThreadManager.h>
+#include <Manager/Resource/ResourceManager.h>
 
 using namespace Component;
 using namespace Database;
+using namespace Manager;
 
 int main(void)
 {
-    Database::Database database;
+    // Database::Database database;
+    Manager::ResourceManager::instance();
 
     Component::Window window;
     window.init();
