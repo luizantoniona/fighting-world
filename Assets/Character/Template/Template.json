@@ -1,0 +1,30 @@
+{
+    "files": [
+        {
+            "name": "Assets/Character/Template/template_0.png",
+            "type": "Sprite",
+            "sizeW": 800,
+            "sizeH": 560,
+            "map": []
+        },
+        {
+            "name": "Assets/Character/Template/template_1.png",
+            "type": "Sprite",
+            "sizeW": 800,
+            "sizeH": 560,
+            "map": []
+        },
+        {
+            "name": "Assets/Character/Template/template_f.png",
+            "type": "Face",
+            "sizeW": 120,
+            "sizeH": 120
+        },
+        {
+            "name": "Assets/Character/Template/template_s.png",
+            "type": "Icon",
+            "sizeW": 40,
+            "sizeH": 45
+        }
+    ]
+}
