@@ -6,6 +6,7 @@ include_directories( ${includes} )
 add_executable(MFW main.cpp ${SOURCES})
 
 set(EXTERNAL_LIBRARIES
+jsoncpp
 sfml-system
 sfml-graphics
 sfml-window
