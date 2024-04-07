@@ -28,7 +28,7 @@ private:
     void loadCharacterImage(const std::string& fileName, const Component::CharacterEnum& character);
     std::map<Component::AnimationEnum, std::vector<sf::IntRect>> loadCharacterAnimationData() const;
 
-    void loadTemplate();
+    void loadCharacter(const std::string& characterName, const Component::CharacterEnum& characterEnum);
 
     std::map<Component::CharacterEnum, std::vector<sf::Texture>> _characterTextures;
     std::map<Component::CharacterEnum, std::map<Component::AnimationEnum, std::vector<sf::IntRect>>> _characterAnmimation;

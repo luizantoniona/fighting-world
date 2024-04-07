@@ -1,6 +1,11 @@
 #include "ResourceManager.h"
 
+#include <fstream>
 #include <iostream>
+
+#include <json/json.h>
+
+#include <Components/Entity/Character/CharacterHelper.h>
 
 BEGIN_NAMESPACE_MANAGER
 
@@ -24,7 +29,8 @@ ResourceManager::ResourceManager()
     : _characterTextures({})
     , _characterAnmimation({})
 {
-    loadTemplate();
+    loadCharacter(Component::CharacterHelper().characterNameByEnum(Component::CharacterEnum::TEMPLATE), Component::CharacterEnum::TEMPLATE);
+    loadCharacter(Component::CharacterHelper().characterNameByEnum(Component::CharacterEnum::DAVIS), Component::CharacterEnum::DAVIS);
 }
 
 void ResourceManager::loadCharacterImage(const std::string& fileName, const Component::CharacterEnum& character)
@@ -42,13 +48,13 @@ void ResourceManager::loadCharacterImage(const std::string& fileName, const Comp
 std::map<Component::AnimationEnum, std::vector<sf::IntRect>> ResourceManager::loadCharacterAnimationData() const
 {
 
-    const auto size = sf::Vector2i(80, 80);
+    const auto size = sf::Vector2i(79, 79);
     const auto initSpace = sf::Vector2i(0, 0);
 
     auto currentStart = initSpace;
 
     auto nextStart = [&]() {
-        currentStart.x += size.x;
+        currentStart.x += size.x + 1;
         if (currentStart.x > size.x * 10) {
             currentStart.x = 0;
             currentStart.y += size.y;
@@ -72,15 +78,26 @@ std::map<Component::AnimationEnum, std::vector<sf::IntRect>> ResourceManager::lo
     return character;
 }
 
-void ResourceManager::loadTemplate()
+void ResourceManager::loadCharacter(const std::string& characterName, const Component::CharacterEnum& characterEnum)
 {
-    loadCharacterImage("Assets/Character/Template/template_0.png", Component::CharacterEnum::TEMPLATE);
-    loadCharacterImage("Assets/Character/Template/template_1.png", Component::CharacterEnum::TEMPLATE);
-    loadCharacterImage("Assets/Character/Template/template_f.png", Component::CharacterEnum::TEMPLATE);
-    loadCharacterImage("Assets/Character/Template/template_s.png", Component::CharacterEnum::TEMPLATE);
-    _characterAnmimation[Component::CharacterEnum::TEMPLATE] = loadCharacterAnimationData();
+    std::cout << "ResourceManager: Loading [" << characterName << "]" << std::endl;
 
-    std::cout << "ResourceManager: Character: Template LOADED" << std::endl;
+    const std::string jsonFileName = "Assets/Character/" + characterName + "/" + characterName + ".json";
+
+    std::ifstream jsonFile(jsonFileName);
+
+    Json::Value characterJson;
+
+    jsonFile >> characterJson;
+
+    for (Json::Value& object : characterJson["files"]) {
+        loadCharacterImage(object["name"].asString(), characterEnum);
+    }
+
+    _characterAnmimation[Component::CharacterEnum::TEMPLATE] = loadCharacterAnimationData();
+    _characterAnmimation[Component::CharacterEnum::DAVIS] = loadCharacterAnimationData();
+
+    std::cout << "ResourceManager: Loaded [" << characterName << "]" << std::endl;
 }
 
 END_NAMESPACE_MANAGER
