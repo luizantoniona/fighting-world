@@ -1,0 +1,30 @@
+{
+    "files": [
+        {
+            "name": "Assets/Character/Bat/bat_0.png",
+            "type": "Sprite",
+            "sizeW": 800,
+            "sizeH": 560,
+            "map": []
+        },
+        {
+            "name": "Assets/Character/Bat/bat_1.png",
+            "type": "Sprite",
+            "sizeW": 800,
+            "sizeH": 560,
+            "map": []
+        },
+        {
+            "name": "Assets/Character/Bat/bat_f.png",
+            "type": "Face",
+            "sizeW": 120,
+            "sizeH": 120
+        },
+        {
+            "name": "Assets/Character/Bat/bat_s.png",
+            "type": "Icon",
+            "sizeW": 40,
+            "sizeH": 45
+        }
+    ]
+}
