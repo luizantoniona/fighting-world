@@ -29,8 +29,9 @@ ResourceManager::ResourceManager()
     : _characterTextures({})
     , _characterAnmimation({})
 {
-    loadCharacter(Component::CharacterHelper().characterNameByEnum(Component::CharacterEnum::TEMPLATE), Component::CharacterEnum::TEMPLATE);
-    loadCharacter(Component::CharacterHelper().characterNameByEnum(Component::CharacterEnum::DAVIS), Component::CharacterEnum::DAVIS);
+    for (int i = 0; i <= static_cast<int>(Component::CharacterEnum::DENNIS); i++) {
+        loadCharacter(Component::CharacterHelper().characterNameByEnum(static_cast<Component::CharacterEnum>(i)), static_cast<Component::CharacterEnum>(i));
+    }
 }
 
 void ResourceManager::loadCharacterImage(const std::string& fileName, const Component::CharacterEnum& character)

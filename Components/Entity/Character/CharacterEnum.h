@@ -5,8 +5,30 @@
 BEGIN_NAMESPACE_COMPONENT
 
 enum class CharacterEnum {
-    TEMPLATE = 0,
-    DAVIS = 1,
+    BANDIT,
+    BAT,
+    DAVIS,
+    DEEP,
+    DENNIS,
+    FIREN,
+    FIRZEN,
+    FREEZE,
+    HENRY,
+    HUNTER,
+    JACK,
+    JAN,
+    JOHN,
+    JULIAN,
+    JUSTIN,
+    KNIGHT,
+    LOUIS,
+    LOUISEX,
+    MARK,
+    MONK,
+    RUDOLF,
+    SORCERER,
+    WOODY,
+    TEMPLATE,
 };
 
 END_NAMESPACE_COMPONENT

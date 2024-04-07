@@ -18,7 +18,7 @@ Arena::~Arena()
 
 void Arena::init()
 {
-    Component::Entity* teste = new Component::Character(sf::Vector2f(110.f, 110.f), CharacterEnum::TEMPLATE);
+    Component::Entity* teste = new Component::Character(sf::Vector2f(110.f, 110.f), CharacterEnum::BANDIT);
 
     Component::Entity* player = new Component::Character(sf::Vector2f(100.f, 100.f), CharacterEnum::DAVIS);
 
