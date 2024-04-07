@@ -1,11 +1,13 @@
 set( SOURCES
     Character/Character.cpp
+    Character/CharacterHelper.cpp
     Entity.cpp
 )
 
 set( HEADERS
     Character/Character.h
     Character/CharacterEnum.h
+    Character/CharacterHelper.h
     Entity.h
 )
 
