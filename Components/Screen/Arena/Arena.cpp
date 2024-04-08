@@ -2,7 +2,8 @@
 
 #include <iostream>
 
-#include <Components/Entity/Character/Character.h>
+#include <Components/Entity/Enemy/Enemy.h>
+#include <Components/Entity/Player/Player.h>
 
 BEGIN_NAMESPACE_COMPONENT
 
@@ -18,17 +19,17 @@ Arena::~Arena()
 
 void Arena::init()
 {
-    Component::Entity* bandit = new Component::Character(sf::Vector2f(0.f, 100.f), CharacterEnum::BANDIT);
-    Component::Entity* bat = new Component::Character(sf::Vector2f(80.f, 100.f), CharacterEnum::BANDIT);
-    Component::Entity* davis = new Component::Character(sf::Vector2f(160.f, 100.f), CharacterEnum::BANDIT);
-    Component::Entity* deep = new Component::Character(sf::Vector2f(240.f, 100.f), CharacterEnum::BANDIT);
+    Component::Entity* bandit = new Component::Enemy(sf::Vector2f(0.f, 100.f), CharacterEnum::BANDIT);
+    Component::Entity* bat = new Component::Enemy(sf::Vector2f(80.f, 100.f), CharacterEnum::BAT);
+    Component::Entity* davis = new Component::Enemy(sf::Vector2f(160.f, 100.f), CharacterEnum::DAVIS);
+    Component::Entity* deep = new Component::Enemy(sf::Vector2f(240.f, 100.f), CharacterEnum::DEEP);
 
     _characters.insert(_characters.cbegin(), bandit);
     _characters.insert(_characters.cbegin(), bat);
     _characters.insert(_characters.cbegin(), davis);
     _characters.insert(_characters.cbegin(), deep);
 
-    Component::Entity* player = new Component::Character(sf::Vector2f(100.f, 100.f), CharacterEnum::BANDIT);
+    Component::Entity* player = new Component::Player(sf::Vector2f(100.f, 100.f), CharacterEnum::FIRZEN);
 
     _players.insert(_players.cbegin(), player);
 }
@@ -62,6 +63,10 @@ void Arena::update(const sf::Time& time)
 
 void Arena::move(const sf::Time& time)
 {
+    for (auto& entity : _characters) {
+        entity->move(time);
+    }
+
     for (auto& entity : _players) {
         entity->move(time);
     }

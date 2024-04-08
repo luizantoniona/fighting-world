@@ -1,6 +1,8 @@
 set( SOURCES
     Character/Character.cpp
     Character/CharacterHelper.cpp
+    Enemy/Enemy.cpp
+    Player/Player.cpp
     Entity.cpp
 )
 
@@ -8,6 +10,8 @@ set( HEADERS
     Character/Character.h
     Character/CharacterEnum.h
     Character/CharacterHelper.h
+    Enemy/Enemy.h
+    Player/Player.h
     Entity.h
 )
 

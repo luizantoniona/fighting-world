@@ -33,21 +33,28 @@ ResourceManager::ResourceManager()
     : _characterTextures({})
     , _characterAnmimation({})
 {
-    for (int i = 0; i <= static_cast<int>(Component::CharacterEnum::BANDIT); i++) {
+    for (int i = 0; i <= static_cast<int>(Component::CharacterEnum::TEMPLATE); i++) {
         loadCharacter(Component::CharacterHelper().characterNameByEnum(static_cast<Component::CharacterEnum>(i)), static_cast<Component::CharacterEnum>(i));
     }
 }
 
 void ResourceManager::loadCharacterImage(const std::string& fileName, const Component::CharacterEnum& character)
 {
-    sf::Texture image;
+    sf::Image image;
     if (!image.loadFromFile(fileName)) {
+        return;
+    }
+
+    image.createMaskFromColor(sf::Color::Black, 0);
+
+    sf::Texture texture;
+    if (!texture.loadFromImage(image)) {
         std::cout << "ResourceManager: Failed to loadCharacterImage [FILE_NAME]" << fileName << std::endl;
         return;
     }
 
     auto& textureList = _characterTextures[character];
-    textureList.push_back(image);
+    textureList.push_back(texture);
 }
 
 Component::AnimationComposition ResourceManager::loadCharacterAnimationData(const Json::Value& characterJson) const
