@@ -5,7 +5,138 @@
             "type": "Sprite",
             "sizeW": 800,
             "sizeH": 560,
-            "map": []
+            "map": [
+                [
+                    {
+                        "movement": "S",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "S",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "S",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "S",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "W",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "W",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "W",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "W",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    }
+                ],
+                [
+                    {
+                        "movement": "S",
+                        "action": "P"
+                    },
+                    {
+                        "movement": "S",
+                        "action": "P"
+                    },
+                    {
+                        "movement": "S",
+                        "action": "P"
+                    },
+                    {
+                        "movement": "S",
+                        "action": "P"
+                    },
+                    {
+                        "movement": "W",
+                        "action": "P"
+                    },
+                    {
+                        "movement": "W",
+                        "action": "P"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    }
+                ],
+                [
+                    {
+                        "movement": "R",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "R",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "R",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    }
+                ],
+                [],
+                [],
+                [],
+                []
+            ]
         },
         {
             "name": "Assets/Character/Deep/deep_1.png",

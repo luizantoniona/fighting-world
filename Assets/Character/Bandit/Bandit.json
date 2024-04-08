@@ -90,7 +90,48 @@
                         "action": "-"
                     }
                 ],
-                [],
+                [
+                    {
+                        "movement": "R",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "R",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "R",
+                        "action": "I"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    },
+                    {
+                        "movement": "-",
+                        "action": "-"
+                    }
+                ],
                 [],
                 [],
                 [],
