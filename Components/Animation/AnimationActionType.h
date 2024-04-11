@@ -4,11 +4,11 @@
 
 BEGIN_NAMESPACE_COMPONENT
 
-enum class AnimationType {
-    IDLE = 'I',
-    PUNCHING = 'P',
-    LEADING = 'L',
-    // TODO: ADD ALL
+enum class AnimationActionType : char {
+    STANDING,
+    PUNCHING,
+    LEADING_HEAVY,
+    THROW_HEAVY,
 };
 
 END_NAMESPACE_COMPONENT
