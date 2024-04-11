@@ -3,7 +3,6 @@ import os
 import numpy as np
 
 def convert_to_transparent(img, bg_color=(0, 0, 0), tolerance=1):
-    # Define lower and upper thresholds for background color (in RGB)
     tmp = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     _,alpha = cv2.threshold(tmp,0,255,cv2.THRESH_BINARY)
     b, g, r = cv2.split(img)
