@@ -14,8 +14,9 @@ Animation::Animation(const Component::AnimationComposition& animation, sf::Sprit
 
 Animation::~Animation() { }
 
-void Animation::update(sf::Time time, Component::AnimationType action,
-    Component::AnimationMovementType actionMovement,
+void Animation::update(sf::Time time,
+    Component::AnimationActionType animationAction,
+    Component::AnimationMovementType animationMovement,
     Component::AnimationDirectionType animationDirection)
 {
     _elapsed += time;
@@ -24,7 +25,7 @@ void Animation::update(sf::Time time, Component::AnimationType action,
         _elapsed -= _animationTime;
         _index++;
 
-        Component::AnimationPair key = std::make_pair(actionMovement, action);
+        Component::AnimationPair key = std::make_pair(animationMovement, animationAction);
 
         if (_index >= _animation._animationData.at(key).size()) {
             _index = 0;

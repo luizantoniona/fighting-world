@@ -5,10 +5,11 @@
 BEGIN_NAMESPACE_COMPONENT
 
 enum class AnimationMovementType : char {
-    STANDING = 'S',
-    WALKING = 'W',
-    RUNNING = 'R',
-    JUMPING = 'J',
+    STANDING,
+    WALKING,
+    RUNNING,
+    JUMPING,
+    FALLING,
 };
 
 END_NAMESPACE_COMPONENT

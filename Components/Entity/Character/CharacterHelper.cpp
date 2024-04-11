@@ -4,7 +4,7 @@
 
 BEGIN_NAMESPACE_COMPONENT
 
-std::string CharacterHelper::characterNameByEnum(const Component::CharacterEnum& character) const
+std::string CharacterHelper::characterNameByEnum(const Component::CharacterEnum& character)
 {
     const std::map<Component::CharacterEnum, std::string> characterName = {
         { Component::CharacterEnum::BANDIT, "Bandit" },

@@ -10,7 +10,7 @@ BEGIN_NAMESPACE_COMPONENT
 
 class CharacterHelper {
 public:
-    std::string characterNameByEnum(const Component::CharacterEnum& character) const;
+    static std::string characterNameByEnum(const Component::CharacterEnum& character);
 };
 
 END_NAMESPACE_COMPONENT

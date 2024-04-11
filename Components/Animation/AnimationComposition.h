@@ -7,12 +7,12 @@
 
 #include <Components/Components_Globals.h>
 
+#include <Components/Animation/AnimationActionType.h>
 #include <Components/Animation/AnimationMovementType.h>
-#include <Components/Animation/AnimationType.h>
 
 BEGIN_NAMESPACE_COMPONENT
 
-using AnimationPair = std::pair<Component::AnimationMovementType, Component::AnimationType>;
+using AnimationPair = std::pair<Component::AnimationMovementType, Component::AnimationActionType>;
 
 struct AnimationComposition {
     using AnimationType = std::map<AnimationPair, std::vector<sf::IntRect>>;

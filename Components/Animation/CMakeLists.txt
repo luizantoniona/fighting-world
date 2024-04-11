@@ -1,13 +1,15 @@
 set( SOURCES
     Animation.cpp
+    AnimationHelper.cpp
 )
 
 set( HEADERS
     Animation.h
+    AnimationActionType.h
     AnimationComposition.h
     AnimationDirectionType.h
+    AnimationHelper.h
     AnimationMovementType.h
-    AnimationType.h
 )
 
 target_sources( MFW PUBLIC ${SOURCES})

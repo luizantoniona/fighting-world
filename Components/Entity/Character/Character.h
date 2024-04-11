@@ -19,7 +19,7 @@ public:
 
 protected:
     Component::Animation _animation;
-    Component::AnimationType _currentAnimation;
+    Component::AnimationActionType _currentAnimationAction;
     Component::AnimationMovementType _currentAnimationMovement;
     Component::AnimationDirectionType _currentAnimationDirection;
 };
