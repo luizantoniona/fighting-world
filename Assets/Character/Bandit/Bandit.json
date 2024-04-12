@@ -118,10 +118,7 @@
                         "state": "falling"
                     },
                     {
-                        "state": [
-                            "falling",
-                            "lying"
-                        ]
+                        "state": "falling"
                     },
                     {
                         "state": "falling"
