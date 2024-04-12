@@ -81,17 +81,36 @@ void ResourceManager::loadCharacterAnimationData(const Json::Value& characterJso
 
                     for (Json::Value characterColumnInfo : characterRowInfo) {
 
-                        const std::string animationString = characterColumnInfo["state"].asString();
+                        if (characterColumnInfo["state"].isArray()) {
 
-                        if (animationString[0] != '-' && !animationString.empty()) {
+                            for (Json::Value state : characterColumnInfo["state"]) {
 
-                            Component::AnimationData& characterAnimation = _characterAnimation[characterEnum];
+                                if (state.asString()[0] != '-' && !state.empty()) {
 
-                            Component::AnimationMovementAction key = Component::AnimationHelper::animationTypeByString(animationString);
+                                    Component::AnimationData& characterAnimation = _characterAnimation[characterEnum];
 
-                            Component::AnimationTextureRectangle& value = characterAnimation._animationData[key];
+                                    Component::AnimationMovementAction key = Component::AnimationHelper::animationTypeByString(state.asString());
 
-                            value.push_back(std::make_pair(imageIndex, sf::IntRect(currentStart, size)));
+                                    Component::AnimationTextureRectangle& value = characterAnimation._animationData[key];
+
+                                    value.push_back(std::make_pair(imageIndex, sf::IntRect(currentStart, size)));
+                                }
+                            }
+
+                        } else {
+
+                            const std::string animationString = characterColumnInfo["state"].asString();
+
+                            if (animationString[0] != '-' && !animationString.empty()) {
+
+                                Component::AnimationData& characterAnimation = _characterAnimation[characterEnum];
+
+                                Component::AnimationMovementAction key = Component::AnimationHelper::animationTypeByString(animationString);
+
+                                Component::AnimationTextureRectangle& value = characterAnimation._animationData[key];
+
+                                value.push_back(std::make_pair(imageIndex, sf::IntRect(currentStart, size)));
+                            }
                         }
 
                         nextStart();

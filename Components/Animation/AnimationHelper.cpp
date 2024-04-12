@@ -10,6 +10,7 @@ AnimationMovementAction AnimationHelper::animationTypeByString(const std::string
         { "standing", { AnimationMovementType::STANDING, AnimationActionType::STANDING } },
         { "walking", { AnimationMovementType::WALKING, AnimationActionType::STANDING } },
         { "running", { AnimationMovementType::RUNNING, AnimationActionType::STANDING } },
+        { "stop_running", { AnimationMovementType::RUNNING_STOP, AnimationActionType::STANDING } },
         { "falling", { AnimationMovementType::FALLING, AnimationActionType::STANDING } },
         { "jump", { AnimationMovementType::JUMPING, AnimationActionType::STANDING } },
         { "dash", { AnimationMovementType::DASHING, AnimationActionType::STANDING } },
@@ -30,6 +31,7 @@ AnimationMovementAction AnimationHelper::animationTypeByString(const std::string
 
         { "heavy_obj_walk", { AnimationMovementType::WALKING, AnimationActionType::LEADING_HEAVY } },
         { "heavy_obj_run", { AnimationMovementType::RUNNING, AnimationActionType::LEADING_HEAVY } },
+        { "heavy_stop_run", { AnimationMovementType::RUNNING_STOP, AnimationActionType::LEADING_HEAVY } },
         { "heavy_weapon_thw", { AnimationMovementType::STANDING, AnimationActionType::THROW_HEAVY } },
 
         { "normal_weapon_atck", { AnimationMovementType::STANDING, AnimationActionType::PUNCHING_LIGHT } },
@@ -40,8 +42,6 @@ AnimationMovementAction AnimationHelper::animationTypeByString(const std::string
 
         { "fire", { AnimationMovementType::STANDING, AnimationActionType::FIRED } },
         { "ice", { AnimationMovementType::STANDING, AnimationActionType::ICED } },
-
-        { "stop_running", { AnimationMovementType::RUNNING_STOP, AnimationActionType::STANDING } },
 
         { "injured", { AnimationMovementType::STANDING, AnimationActionType::INJURED } },
 
