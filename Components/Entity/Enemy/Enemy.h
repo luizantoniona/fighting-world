@@ -11,7 +11,8 @@ public:
     Enemy(const sf::Vector2f& position, const CharacterEnum& character);
 
     void move(const sf::Time& time) override;
-    void keyEventHandler(sf::Event& event) override;
+    void pressedKeyEventHandler(sf::Event& event) override;
+    void releasedKeyEventHandler(sf::Event& event) override;
 
 private:
     sf::Vector2f movement(Component::AnimationDirectionType direction) const;

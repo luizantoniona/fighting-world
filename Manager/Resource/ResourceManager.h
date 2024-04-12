@@ -10,7 +10,8 @@
 
 #include <Manager/Manager_Globals.h>
 
-#include <Components/Animation/AnimationComposition.h>
+#include <Components/Animation/AnimationData.h>
+#include <Components/Entity/Character/Character.h>
 #include <Components/Entity/Character/CharacterEnum.h>
 
 BEGIN_NAMESPACE_MANAGER
@@ -22,18 +23,16 @@ public:
     ResourceManager(const ResourceManager&) = delete;
     ResourceManager& operator=(const ResourceManager&) = delete;
 
-    sf::Texture& characterTexture(const Component::CharacterEnum& character, const int index);
-    Component::AnimationComposition& characterAnimation(const Component::CharacterEnum& character);
+    Component::AnimationData& characterAnimation(const Component::CharacterEnum& character);
 
 private:
     ResourceManager();
-    void loadCharacterImage(const std::string& fileName, const Component::CharacterEnum& character);
-    Component::AnimationComposition loadCharacterAnimationData(const Json::Value& characterJson) const;
 
     void loadCharacter(const std::string& characterName, const Component::CharacterEnum& characterEnum);
+    void loadCharacterAnimationData(const Json::Value& characterJson, const Component::CharacterEnum& characterEnum);
+    void loadCharacterImage(const std::string& fileName, const Component::CharacterEnum& characterEnum);
 
-    std::map<Component::CharacterEnum, std::vector<sf::Texture>> _characterTextures;
-    std::map<Component::CharacterEnum, Component::AnimationComposition> _characterAnmimation;
+    std::map<Component::CharacterEnum, Component::AnimationData> _characterAnimation;
 };
 
 END_NAMESPACE_MANAGER

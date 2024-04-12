@@ -4,11 +4,12 @@
 
 BEGIN_NAMESPACE_COMPONENT
 
-Animation::Animation(const Component::AnimationComposition& animation, sf::Sprite& sprite)
-    : _animation(animation)
-    , _sprite(sprite)
+Animation::Animation(const Component::AnimationData& animation, sf::Sprite& sprite)
+    : _index(0)
+    , _elapsed(sf::microseconds(0.0))
     , _animationTime(sf::seconds(0.1))
-    , _index(0)
+    , _sprite(sprite)
+    , _animation(animation)
 {
 }
 
@@ -25,13 +26,14 @@ void Animation::update(sf::Time time,
         _elapsed -= _animationTime;
         _index++;
 
-        Component::AnimationPair key = std::make_pair(animationMovement, animationAction);
+        Component::AnimationMovementAction key = std::make_pair(animationMovement, animationAction);
 
         if (_index >= _animation._animationData.at(key).size()) {
             _index = 0;
         }
 
-        _sprite.setTextureRect(_animation._animationData.at(key)[_index]);
+        _sprite.setTexture(_animation._texture.at(_animation._animationData.at(key)[_index].first));
+        _sprite.setTextureRect(_animation._animationData.at(key)[_index].second);
 
         updateDirection(animationDirection);
     }

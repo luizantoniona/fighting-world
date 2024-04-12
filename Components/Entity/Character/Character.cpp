@@ -13,7 +13,6 @@ Character::Character(const sf::Vector2f& position, const CharacterEnum& characte
     , _currentAnimationMovement(Component::AnimationMovementType::STANDING)
     , _currentAnimationDirection(Component::AnimationDirectionType::RIGHT)
 {
-    _sprite.setTexture(Manager::ResourceManager::instance().characterTexture(character, 0));
     _sprite.setOrigin(80 / 2, 80 / 2);
 }
 

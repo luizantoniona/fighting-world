@@ -15,7 +15,8 @@ public:
     virtual void render(sf::RenderWindow& window) = 0;
     virtual void update(const sf::Time& time) = 0;
     virtual void move(const sf::Time& time) = 0;
-    virtual void eventHandler(sf::Event& event) = 0;
+    virtual void pressedEventHandler(sf::Event& event) = 0;
+    virtual void releasedEventHandler(sf::Event& event) = 0;
     virtual sf::Vector2f playerPosition() = 0;
 };
 

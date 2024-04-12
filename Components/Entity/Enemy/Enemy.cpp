@@ -19,9 +19,9 @@ void Enemy::move(const sf::Time& time)
     //_sprite.move(movement(_currentAnimationDirection) * SPEED * time.asSeconds());
 }
 
-void Enemy::keyEventHandler(sf::Event& event)
-{
-}
+void Enemy::pressedKeyEventHandler(sf::Event& event) { }
+
+void Enemy::releasedKeyEventHandler(sf::Event& event) { }
 
 sf::Vector2f Enemy::movement(Component::AnimationDirectionType direction) const
 {

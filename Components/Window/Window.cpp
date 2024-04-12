@@ -54,9 +54,13 @@ void Window::run()
                 _window.close();
             }
 
-            // if (event.type == sf::Event::KeyPressed) {
-            //     _screens.at(_currentWindow)->eventHandler(event);
-            // }
+            if (event.type == sf::Event::KeyPressed) {
+                _screens.at(_currentWindow)->pressedEventHandler(event);
+            }
+
+            if (event.type == sf::Event::KeyReleased) {
+                _screens.at(_currentWindow)->releasedEventHandler(event);
+            }
         }
 
         _screens.at(_currentWindow)->move(_clock.getElapsedTime());

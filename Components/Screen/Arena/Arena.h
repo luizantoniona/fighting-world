@@ -21,7 +21,8 @@ public:
     void update(const sf::Time& time) override;
     void move(const sf::Time& time) override;
 
-    void eventHandler(sf::Event& event) override;
+    void pressedEventHandler(sf::Event& event) override;
+    void releasedEventHandler(sf::Event& event) override;
 
     sf::Vector2f playerPosition();
 

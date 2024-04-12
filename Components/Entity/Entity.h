@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 #include <SFML/Graphics.hpp>
 
@@ -17,7 +18,8 @@ public:
     virtual void draw(sf::RenderWindow& window) const;
     virtual void update(const sf::Time& time) = 0;
     virtual void move(const sf::Time& time) = 0;
-    virtual void keyEventHandler(sf::Event& event) = 0;
+    virtual void pressedKeyEventHandler(sf::Event& event) = 0;
+    virtual void releasedKeyEventHandler(sf::Event& event) = 0;
 
     sf::Vector2f position() const;
 

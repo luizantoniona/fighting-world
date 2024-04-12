@@ -1,5 +1,5 @@
 ## Fighting World
-A game project base on Little Fighter 2 to improve my skills with:
+A game project based on Little Fighter 2 to improve my skills with:
 - C/C++
 - CMake
 - SFML

@@ -6,7 +6,7 @@ set( SOURCES
 set( HEADERS
     Animation.h
     AnimationActionType.h
-    AnimationComposition.h
+    AnimationData.h
     AnimationDirectionType.h
     AnimationHelper.h
     AnimationMovementType.h

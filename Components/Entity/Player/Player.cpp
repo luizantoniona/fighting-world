@@ -70,10 +70,23 @@ void Player::move(const sf::Time& time)
     _sprite.move(movement(_currentAnimationDirection) * speed * time.asSeconds());
 }
 
-void Player::keyEventHandler(sf::Event& event)
+void Player::pressedKeyEventHandler(sf::Event& event)
+{
+    switch (event.key.code) {
+    case sf::Keyboard::Key::I:
+        _currentAnimationAction = Component::AnimationActionType::PUNCHING;
+
+    default:
+        _currentAnimationAction = Component::AnimationActionType::STANDING;
+        break;
+    }
+}
+
+void Player::releasedKeyEventHandler(sf::Event& event)
 {
     switch (event.key.code) {
     default:
+        _currentAnimationAction = Component::AnimationActionType::STANDING;
         break;
     }
 }

@@ -5,131 +5,103 @@
             "type": "Sprite",
             "sizeW": 800,
             "sizeH": 560,
+            "characterW": 79,
+            "characterH": 79,
             "map": [
                 [
                     {
-                        "movement": "S",
-                        "action": "I"
+                        "state": "standing"
                     },
                     {
-                        "movement": "S",
-                        "action": "I"
+                        "state": "standing"
                     },
                     {
-                        "movement": "S",
-                        "action": "I"
+                        "state": "standing"
                     },
                     {
-                        "movement": "S",
-                        "action": "I"
+                        "state": "standing"
                     },
                     {
-                        "movement": "W",
-                        "action": "I"
+                        "state": "walking"
                     },
                     {
-                        "movement": "W",
-                        "action": "I"
+                        "state": "walking"
                     },
                     {
-                        "movement": "W",
-                        "action": "I"
+                        "state": "walking"
                     },
                     {
-                        "movement": "W",
-                        "action": "I"
+                        "state": "walking"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "-"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "-"
                     }
                 ],
                 [
                     {
-                        "movement": "S",
-                        "action": "P"
+                        "state": "punch"
                     },
                     {
-                        "movement": "S",
-                        "action": "P"
+                        "state": "punch"
                     },
                     {
-                        "movement": "S",
-                        "action": "P"
+                        "state": "punch"
                     },
                     {
-                        "movement": "S",
-                        "action": "P"
+                        "state": "punch"
                     },
                     {
-                        "movement": "W",
-                        "action": "P"
+                        "state": "jump_attack"
                     },
                     {
-                        "movement": "W",
-                        "action": "P"
+                        "state": "jump_attack"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "-"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "-"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "-"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "-"
                     }
                 ],
                 [
                     {
-                        "movement": "R",
-                        "action": "I"
+                        "state": "running"
                     },
                     {
-                        "movement": "R",
-                        "action": "I"
+                        "state": "running"
                     },
                     {
-                        "movement": "R",
-                        "action": "I"
+                        "state": "running"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "heavy_obj_walk"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "heavy_obj_walk"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "heavy_obj_walk"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "heavy_obj_walk"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "heavy_weapon_thw"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "heavy_weapon_thw"
                     },
                     {
-                        "movement": "-",
-                        "action": "-"
+                        "state": "-"
                     }
                 ],
                 [],
@@ -143,8 +115,23 @@
             "type": "Sprite",
             "sizeW": 800,
             "sizeH": 560,
+            "characterW": 79,
+            "characterH": 79,
             "map": [
-                [],
+                [
+                    {
+                        "state": ""
+                    },
+                    {
+                        "state": ""
+                    },
+                    {
+                        "state": ""
+                    },
+                    {
+                        "state": ""
+                    }
+                ],
                 [],
                 [],
                 [],
