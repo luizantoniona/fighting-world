@@ -95,16 +95,10 @@
                         "state": "heavy_obj_walk"
                     },
                     {
-                        "state": [
-                            "heavy_weapon_thw",
-                            "throw_lying_man"
-                        ]
+                        "state": "heavy_weapon_thw"
                     },
                     {
-                        "state": [
-                            "heavy_weapon_thw",
-                            "throw_lying_man"
-                        ]
+                        "state": "heavy_weapon_thw"
                     },
                     {
                         "state": "-"
@@ -112,41 +106,25 @@
                 ],
                 [
                     {
-                        "state": [
-                            "falling",
-                            "picked_caught"
-                        ]
+                        "state": "falling"
+                    },
+                    {
+                        "state": "falling"
+                    },
+                    {
+                        "state": "falling"
+                    },
+                    {
+                        "state": "falling"
                     },
                     {
                         "state": [
                             "falling",
-                            "picked_caught"
-                        ]
-                    },
-                    {
-                        "state": [
-                            "falling",
-                            "picked_caught"
-                        ]
-                    },
-                    {
-                        "state": [
-                            "falling",
-                            "picked_caught"
-                        ]
-                    },
-                    {
-                        "state": [
-                            "falling",
-                            "picked_caught",
                             "lying"
                         ]
                     },
                     {
-                        "state": [
-                            "falling",
-                            "picked_caught"
-                        ]
+                        "state": "falling"
                     },
                     {
                         "state": [
@@ -166,40 +144,22 @@
                 ],
                 [
                     {
-                        "state": [
-                            "falling",
-                            "picked_caught"
-                        ]
+                        "state": "falling"
                     },
                     {
-                        "state": [
-                            "falling",
-                            "picked_caught"
-                        ]
+                        "state": "falling"
                     },
                     {
-                        "state": [
-                            "falling",
-                            "picked_caught"
-                        ]
+                        "state": "falling"
                     },
                     {
-                        "state": [
-                            "falling",
-                            "picked_caught"
-                        ]
+                        "state": "falling"
                     },
                     {
-                        "state": [
-                            "falling",
-                            "picked_caught"
-                        ]
+                        "state": "falling"
                     },
                     {
-                        "state": [
-                            "falling",
-                            "picked_caught"
-                        ]
+                        "state": "falling"
                     },
                     {
                         "state": "broken_defend"
@@ -216,22 +176,22 @@
                 ],
                 [
                     {
-                        "state": "catching"
+                        "state": "-"
                     },
                     {
-                        "state": "catching"
+                        "state": "-"
                     },
                     {
-                        "state": "catching"
+                        "state": "-"
                     },
                     {
-                        "state": "picked_caught"
+                        "state": "-"
                     },
                     {
-                        "state": "picked_caught"
+                        "state": "-"
                     },
                     {
-                        "state": "picked_caught"
+                        "state": "-"
                     },
                     {
                         "state": "defend"
