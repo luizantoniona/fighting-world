@@ -95,19 +95,192 @@
                         "state": "heavy_obj_walk"
                     },
                     {
-                        "state": "heavy_weapon_thw"
+                        "state": [
+                            "heavy_weapon_thw",
+                            "throw_lying_man"
+                        ]
                     },
                     {
-                        "state": "heavy_weapon_thw"
+                        "state": [
+                            "heavy_weapon_thw",
+                            "throw_lying_man"
+                        ]
                     },
                     {
                         "state": "-"
                     }
                 ],
-                [],
-                [],
-                [],
-                []
+                [
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught"
+                        ]
+                    },
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught"
+                        ]
+                    },
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught"
+                        ]
+                    },
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught"
+                        ]
+                    },
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught",
+                            "lying"
+                        ]
+                    },
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught"
+                        ]
+                    },
+                    {
+                        "state": [
+                            "picking_light",
+                            "picking_heavy"
+                        ]
+                    },
+                    {
+                        "state": "super_punch"
+                    },
+                    {
+                        "state": "super_punch"
+                    },
+                    {
+                        "state": "super_punch"
+                    }
+                ],
+                [
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught"
+                        ]
+                    },
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught"
+                        ]
+                    },
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught"
+                        ]
+                    },
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught"
+                        ]
+                    },
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught"
+                        ]
+                    },
+                    {
+                        "state": [
+                            "falling",
+                            "picked_caught"
+                        ]
+                    },
+                    {
+                        "state": "broken_defend"
+                    },
+                    {
+                        "state": "broken_defend"
+                    },
+                    {
+                        "state": "broken_defend"
+                    },
+                    {
+                        "state": "rowing"
+                    }
+                ],
+                [
+                    {
+                        "state": "catching"
+                    },
+                    {
+                        "state": "catching"
+                    },
+                    {
+                        "state": "catching"
+                    },
+                    {
+                        "state": "picked_caught"
+                    },
+                    {
+                        "state": "picked_caught"
+                    },
+                    {
+                        "state": "picked_caught"
+                    },
+                    {
+                        "state": "defend"
+                    },
+                    {
+                        "state": "defend"
+                    },
+                    {
+                        "state": "rowing"
+                    },
+                    {
+                        "state": "rowing"
+                    }
+                ],
+                [
+                    {
+                        "state": [
+                            "jump",
+                            "crouch"
+                        ]
+                    },
+                    {
+                        "state": "jump"
+                    },
+                    {
+                        "state": "jump"
+                    },
+                    {
+                        "state": "dash"
+                    },
+                    {
+                        "state": "dash"
+                    },
+                    {
+                        "state": "rowing"
+                    },
+                    {
+                        "state": "rowing"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    }
+                ]
             ]
         },
         {
@@ -120,24 +293,231 @@
             "map": [
                 [
                     {
-                        "state": ""
+                        "state": "normal_weapon_atck"
                     },
                     {
-                        "state": ""
+                        "state": "normal_weapon_atck"
                     },
                     {
-                        "state": ""
+                        "state": "normal_weapon_atck"
                     },
                     {
-                        "state": ""
+                        "state": "normal_weapon_atck"
+                    },
+                    {
+                        "state": "normal_weapon_atck"
+                    },
+                    {
+                        "state": "normal_weapon_atck"
+                    },
+                    {
+                        "state": "normal_weapon_atck"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
                     }
                 ],
-                [],
-                [],
-                [],
-                [],
-                [],
-                []
+                [
+                    {
+                        "state": "jump_weapon_atck"
+                    },
+                    {
+                        "state": "jump_weapon_atck"
+                    },
+                    {
+                        "state": "jump_weapon_atck"
+                    },
+                    {
+                        "state": "run_weapon_atck"
+                    },
+                    {
+                        "state": "run_weapon_atck"
+                    },
+                    {
+                        "state": "run_weapon_atck"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    }
+                ],
+                [
+                    {
+                        "state": "dash_weapon_atck"
+                    },
+                    {
+                        "state": "dash_weapon_atck"
+                    },
+                    {
+                        "state": "dash_weapon_atck"
+                    },
+                    {
+                        "state": "dash_weapon_atck"
+                    },
+                    {
+                        "state": "light_weapon_thw"
+                    },
+                    {
+                        "state": "light_weapon_thw"
+                    },
+                    {
+                        "state": "light_weapon_thw"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    }
+                ],
+                [
+                    {
+                        "state": "fire"
+                    },
+                    {
+                        "state": "fire"
+                    },
+                    {
+                        "state": "run_attack"
+                    },
+                    {
+                        "state": "run_attack"
+                    },
+                    {
+                        "state": [
+                            "run_attack",
+                            "super_punch"
+                        ]
+                    },
+                    {
+                        "state": "ice"
+                    },
+                    {
+                        "state": "dash_attack"
+                    },
+                    {
+                        "state": "dash_attack"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    }
+                ],
+                [
+                    {
+                        "state": "fire"
+                    },
+                    {
+                        "state": "fire"
+                    },
+                    {
+                        "state": "dash"
+                    },
+                    {
+                        "state": "dash"
+                    },
+                    {
+                        "state": "stop_running"
+                    },
+                    {
+                        "state": "ice"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "rowing"
+                    },
+                    {
+                        "state": "rowing"
+                    },
+                    {
+                        "state": "-"
+                    }
+                ],
+                [
+                    {
+                        "state": "injured"
+                    },
+                    {
+                        "state": "injured"
+                    },
+                    {
+                        "state": "injured"
+                    },
+                    {
+                        "state": "injured"
+                    },
+                    {
+                        "state": "injured"
+                    },
+                    {
+                        "state": "heavy_obj_run"
+                    },
+                    {
+                        "state": "heavy_obj_run"
+                    },
+                    {
+                        "state": "heavy_obj_run"
+                    },
+                    {
+                        "state": "heavy_stop_run"
+                    },
+                    {
+                        "state": "-"
+                    }
+                ],
+                [
+                    {
+                        "state": "injured"
+                    },
+                    {
+                        "state": "injured"
+                    },
+                    {
+                        "state": "weapon_drink"
+                    },
+                    {
+                        "state": "weapon_drink"
+                    },
+                    {
+                        "state": "weapon_drink"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    },
+                    {
+                        "state": "-"
+                    }
+                ]
             ]
         },
         {
