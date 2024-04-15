@@ -3,6 +3,8 @@
 #include <iostream>
 
 #include <Components/Screen/Arena/Arena.h>
+#include <Components/Screen/Loading/Loading.h>
+#include <Components/Screen/Menu/Menu.h>
 
 namespace {
 constexpr const char* DISPLAY_NAME = "Fighting World";
@@ -13,7 +15,7 @@ constexpr const int SCREEN_HEIGHT = 600;
 BEGIN_NAMESPACE_COMPONENT
 
 Window::Window()
-    : _currentWindow(Component::ScreenEnum::ARENA)
+    : _currentWindow(Component::ScreenEnum::MENU)
     , _window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), DISPLAY_NAME, sf::Style::Close)
     , _screens({})
     , _clock({})
@@ -34,10 +36,7 @@ void Window::setCurrentWindow(const Component::ScreenEnum& currentWindow)
 
 void Window::init()
 {
-    _screens.insert({ Component::ScreenEnum::ARENA, new Component::Arena() });
-
-    _currentWindow = ScreenEnum::ARENA;
-
+    startMenu();
     run();
 }
 
@@ -60,6 +59,14 @@ void Window::run()
 
             if (event.type == sf::Event::KeyReleased) {
                 _screens.at(_currentWindow)->releasedEventHandler(event);
+            }
+
+            if (event.type == sf::Event::MouseButtonPressed) {
+                _screens.at(_currentWindow)->mouseButtonClicked(event, _window);
+            }
+
+            if (event.type == sf::Event::MouseButtonReleased) {
+                _screens.at(_currentWindow)->mouseButtonReleased(event, _window);
             }
         }
 
@@ -84,6 +91,39 @@ void Window::adjustView()
     _view.setCenter(centerLocation);
 
     _window.setView(_view);
+}
+
+void Window::startLoading()
+{
+    if (_screens.count(Component::ScreenEnum::LOADING)) {
+        _screens.erase(Component::ScreenEnum::LOADING);
+    }
+
+    _screens.insert({ Component::ScreenEnum::LOADING, new Component::Loading() });
+
+    _currentWindow = ScreenEnum::LOADING;
+}
+
+void Window::startMenu()
+{
+    if (_screens.count(Component::ScreenEnum::MENU)) {
+        _screens.erase(Component::ScreenEnum::MENU);
+    }
+
+    _screens.insert({ Component::ScreenEnum::MENU, new Component::Menu() });
+
+    _currentWindow = ScreenEnum::MENU;
+}
+
+void Window::startGame()
+{
+    if (_screens.count(Component::ScreenEnum::ARENA)) {
+        _screens.erase(Component::ScreenEnum::ARENA);
+    }
+
+    _screens.insert({ Component::ScreenEnum::ARENA, new Component::Arena() });
+
+    _currentWindow = ScreenEnum::ARENA;
 }
 
 END_NAMESPACE_COMPONENT

@@ -6,7 +6,9 @@ set( HEADERS
 )
 
 add_subdirectory(Animation)
+add_subdirectory(Button)
 add_subdirectory(Entity)
+add_subdirectory(Font)
 add_subdirectory(Screen)
 add_subdirectory(Window)
 

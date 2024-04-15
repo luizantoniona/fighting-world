@@ -1,10 +1,14 @@
 set( SOURCES
     Arena/Arena.cpp
+    Loading/Loading.cpp
+    Menu/Menu.cpp
     Screen.cpp
 )
 
 set( HEADERS
     Arena/Arena.h
+    Loading/Loading.h
+    Menu/Menu.h
     Screen.h
     ScreenEnum.h
 )

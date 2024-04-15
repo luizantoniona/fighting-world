@@ -4,15 +4,15 @@
 
 #include <Components/Components_Globals.h>
 
-#include <Components/Entity/Entity.h>
+#include <Components/Button/Button.h>
 #include <Components/Screen/Screen.h>
 
 BEGIN_NAMESPACE_COMPONENT
 
-class Arena : public Screen {
+class Menu : public Screen {
 public:
-    Arena();
-    ~Arena();
+    Menu();
+    ~Menu();
 
     void init() override;
     void clear() override;
@@ -27,15 +27,14 @@ public:
     void mouseButtonClicked(sf::Event& event, sf::RenderWindow& window) override;
     void mouseButtonReleased(sf::Event& event, sf::RenderWindow& window) override;
 
-    sf::Vector2f playerPosition();
+    sf::Vector2f playerPosition() override;
+
+    void addButton(float x, float y, float width, float height, const std::string& text, const sf::Font& font, std::function<void()> onClick);
 
 private:
     sf::RectangleShape _background;
     sf::RectangleShape _ground;
-
-    std::list<Component::Entity*> _characters;
-    std::list<Component::Entity*> _players;
-    std::list<Component::Entity*> _allCharacters;
+    std::list<Button> _buttons;
 };
 
 END_NAMESPACE_COMPONENT

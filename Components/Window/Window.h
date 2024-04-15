@@ -23,6 +23,10 @@ public:
 
     void adjustView();
 
+    void startLoading();
+    void startMenu();
+    void startGame();
+
 private:
     sf::RenderWindow _window;
     sf::View _view;

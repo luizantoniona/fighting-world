@@ -5,6 +5,7 @@
 
 #include <Components/Animation/AnimationHelper.h>
 #include <Components/Entity/Character/CharacterHelper.h>
+#include <Components/Font/FontHelper.h>
 
 namespace {
 constexpr const char* TYPE_SPRITE = "Sprite";
@@ -25,12 +26,38 @@ Component::AnimationData& ResourceManager::characterAnimation(const Component::C
     return _characterAnimation.at(character);
 }
 
-ResourceManager::ResourceManager()
-    : _characterAnimation({})
+sf::Font& ResourceManager::font(const Component::FontEnum& font)
 {
+    return _fonts.at(font);
+}
+
+ResourceManager::ResourceManager()
+    : _fonts({})
+    , _characterAnimation({})
+{
+    for (int i = 0; i <= static_cast<int>(Component::FontEnum::ARIAL); i++) {
+        loadFont(static_cast<Component::FontEnum>(i));
+    }
+
     for (int i = 0; i <= static_cast<int>(Component::CharacterEnum::BANDIT); i++) {
         loadCharacter(Component::CharacterHelper().characterNameByEnum(static_cast<Component::CharacterEnum>(i)), static_cast<Component::CharacterEnum>(i));
     }
+}
+
+void ResourceManager::loadFont(const Component::FontEnum& fontEnum)
+{
+    std::cout << "ResourceManager: Loading Font [" << static_cast<int>(fontEnum) << "]" << std::endl;
+
+    sf::Font font;
+    if (!font.loadFromFile(Component::FontHelper::fontByFontEnum(fontEnum))) {
+        std::cout << "ResourceManager: Failed to loadFont [FONT_ENUM]" << static_cast<int>(fontEnum) << std::endl;
+        return;
+    }
+
+    auto& fontOnMap = _fonts[fontEnum];
+    fontOnMap = font;
+
+    std::cout << "ResourceManager: Loaded Font [" << static_cast<int>(fontEnum) << "]" << std::endl;
 }
 
 void ResourceManager::loadCharacter(const std::string& characterName, const Component::CharacterEnum& characterEnum)

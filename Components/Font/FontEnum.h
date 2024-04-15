@@ -4,10 +4,8 @@
 
 BEGIN_NAMESPACE_COMPONENT
 
-enum class ScreenEnum : int {
-    LOADING,
-    MENU,
-    ARENA,
+enum class FontEnum : int {
+    ARIAL,
 };
 
 END_NAMESPACE_COMPONENT

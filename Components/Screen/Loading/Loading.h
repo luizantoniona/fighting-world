@@ -1,18 +1,17 @@
 #pragma once
 
-#include <list>
+#include <SFML/Graphics.hpp>
 
 #include <Components/Components_Globals.h>
 
-#include <Components/Entity/Entity.h>
 #include <Components/Screen/Screen.h>
 
 BEGIN_NAMESPACE_COMPONENT
 
-class Arena : public Screen {
+class Loading : public Screen {
 public:
-    Arena();
-    ~Arena();
+    Loading();
+    ~Loading();
 
     void init() override;
     void clear() override;
@@ -27,15 +26,11 @@ public:
     void mouseButtonClicked(sf::Event& event, sf::RenderWindow& window) override;
     void mouseButtonReleased(sf::Event& event, sf::RenderWindow& window) override;
 
-    sf::Vector2f playerPosition();
+    sf::Vector2f playerPosition() override;
 
 private:
     sf::RectangleShape _background;
     sf::RectangleShape _ground;
-
-    std::list<Component::Entity*> _characters;
-    std::list<Component::Entity*> _players;
-    std::list<Component::Entity*> _allCharacters;
 };
 
 END_NAMESPACE_COMPONENT

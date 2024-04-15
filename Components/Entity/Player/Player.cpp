@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include <Components/Entity/Player/MovementHelper.h>
+
 namespace {
 constexpr const auto SPEED = 100.f;
 constexpr const auto RUN_SPEED = 180.f;
@@ -16,53 +18,19 @@ Player::Player(const sf::Vector2f& position, const CharacterEnum& character)
 
 void Player::move(const sf::Time& time)
 {
-    const bool isWalking = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)
-        || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)
-        || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)
-        || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D);
+    const bool isWPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W);
+    const bool isAPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A);
+    const bool isSPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S);
+    const bool isDPressed = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D);
 
-    if (isWalking) {
+    _currentAnimationDirection = Component::MovementHelper::movementDirectionByKey(isWPressed, isAPressed, isSPressed, isDPressed);
+
+    if (isWPressed || isAPressed || isSPressed || isDPressed) {
 
         _currentAnimationMovement = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) ? Component::AnimationMovementType::RUNNING : Component::AnimationMovementType::WALKING;
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
-
-            _currentAnimationDirection = Component::AnimationDirectionType::UP;
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-
-                _currentAnimationDirection = Component::AnimationDirectionType::LEFT_UP;
-            }
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-
-                _currentAnimationDirection = Component::AnimationDirectionType::RIGHT_UP;
-            }
-
-        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
-
-            _currentAnimationDirection = Component::AnimationDirectionType::DOWN;
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-
-                _currentAnimationDirection = Component::AnimationDirectionType::LEFT_DOWN;
-            }
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-
-                _currentAnimationDirection = Component::AnimationDirectionType::RIGHT_DOWN;
-            }
-
-        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-            _currentAnimationDirection = Component::AnimationDirectionType::LEFT;
-
-        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-            _currentAnimationDirection = Component::AnimationDirectionType::RIGHT;
-        }
-
     } else {
         _currentAnimationMovement = Component::AnimationMovementType::STANDING;
-        _currentAnimationDirection = Component::AnimationDirectionType::STAY;
     }
 
     const float speed = _currentAnimationMovement == Component::AnimationMovementType::RUNNING ? RUN_SPEED : SPEED;
@@ -75,6 +43,10 @@ void Player::pressedKeyEventHandler(sf::Event& event)
     switch (event.key.code) {
     case sf::Keyboard::Key::I:
         _currentAnimationAction = Component::AnimationActionType::PUNCHING;
+
+    case sf::Keyboard::Key::Q:
+        _currentAnimationMovement = Component::AnimationMovementType::JUMPING;
+        break;
 
     default:
         _currentAnimationAction = Component::AnimationActionType::STANDING;

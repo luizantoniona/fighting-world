@@ -86,6 +86,10 @@ void Arena::releasedEventHandler(sf::Event& event)
     }
 }
 
+void Arena::mouseButtonClicked(sf::Event& event, sf::RenderWindow& window) { }
+
+void Arena::mouseButtonReleased(sf::Event& event, sf::RenderWindow& window) { }
+
 sf::Vector2f Arena::playerPosition()
 {
     if (!_players.empty()) {
